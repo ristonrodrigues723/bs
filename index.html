@@ -16,12 +16,17 @@
             <input type="number" id="remove-input" placeholder="Remove number">
             <button onclick="removeNumber()">Remove</button>
             <button onclick="clearArray()">Clear Array</button>
+            <button onclick="generateRandomArray()">Generate Random Array</button>
             <input type="number" id="search-input" placeholder="Enter a number to search">
             <button onclick="startSearch()">Search</button>
         </div>
         <div class="message-container">
             <h2>Instructions</h2>
             <p>Add or remove numbers from the array, then perform a binary search.</p>
+        </div>
+        <div class="message-container">
+            <h2>Status</h2>
+            <p id="message-box">No action performed yet.</p>
         </div>
     </div>
     <script src="bs.js"></script>

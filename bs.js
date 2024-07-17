@@ -1,5 +1,6 @@
 let array = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
 const container = document.getElementById('array-container');
+const messageBox = document.getElementById('message-box');
 
 function createBoxes() {
     container.innerHTML = '';
@@ -10,6 +11,10 @@ function createBoxes() {
         box.textContent = num;
         container.appendChild(box);
     });
+}
+
+function updateMessage(message) {
+    messageBox.textContent = message;
 }
 
 createBoxes();
@@ -29,6 +34,7 @@ async function binarySearch(target) {
 
         if (array[mid] === target) {
             boxes[mid].classList.add('found');
+            updateMessage(`Element ${target} found at index ${mid}`);
             return mid;
         } else if (array[mid] < target) {
             left = mid + 1;
@@ -38,6 +44,7 @@ async function binarySearch(target) {
     }
 
     document.querySelectorAll('.box').forEach(box => box.classList.add('not-found'));
+    updateMessage(`Element ${target} not found in the array`);
     return -1;
 }
 
@@ -51,6 +58,7 @@ function addNumber() {
     if (!isNaN(num) && !array.includes(num)) {
         array.push(num);
         createBoxes();
+        updateMessage(`Added ${num} to the array`);
     }
     document.getElementById('add-input').value = '';
 }
@@ -61,6 +69,7 @@ function removeNumber() {
     if (index > -1) {
         array.splice(index, 1);
         createBoxes();
+        updateMessage(`Removed ${num} from the array`);
     }
     document.getElementById('remove-input').value = '';
 }
@@ -68,4 +77,12 @@ function removeNumber() {
 function clearArray() {
     array = [];
     createBoxes();
+    updateMessage('Array cleared');
+}
+
+function generateRandomArray() {
+    const size = Math.floor(Math.random() * 10) + 5; // Random size between 5 and 14
+    array = Array.from({length: size}, () => Math.floor(Math.random() * 100) + 1);
+    createBoxes();
+    updateMessage(`Generated new random array with ${size} elements`);
 }
