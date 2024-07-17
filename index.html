@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="bs.css">
 </head>
 <body>
-    <div class="container" id="array-container"></div>
-    <div class="controls">
-        <input type="number" id="add-input" placeholder="Add number">
-        <button onclick="addNumber()">Add</button>
-        <input type="number" id="remove-input" placeholder="Remove number">
-        <button onclick="removeNumber()">Remove</button>
-        <button onclick="clearArray()">Clear Array</button>
-        <br><br>
-        <input type="number" id="search-input" placeholder="Enter a number to search">
-        <button onclick="startSearch()">Search</button>
+    <div class="container">
+        <h1>Binary Search Visualization</h1>
+        <div id="array-container"></div>
+        <div class="controls">
+            <input type="number" id="add-input" placeholder="Add number">
+            <button onclick="addNumber()">Add</button>
+            <input type="number" id="remove-input" placeholder="Remove number">
+            <button onclick="removeNumber()">Remove</button>
+            <button onclick="clearArray()">Clear Array</button>
+            <input type="number" id="search-input" placeholder="Enter a number to search">
+            <button onclick="startSearch()">Search</button>
+        </div>
+        <div class="message-container">
+            <h2>Instructions</h2>
+            <p>Add or remove numbers from the array, then perform a binary search.</p>
+        </div>
     </div>
     <script src="bs.js"></script>
 </body>
